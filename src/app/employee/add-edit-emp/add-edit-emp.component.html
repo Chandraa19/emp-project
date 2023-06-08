@@ -1,0 +1,199 @@
+<div class="d-flex flex-row bd-highlight mb-3">
+<div class="form-froup row" style="width: 60%;">
+<label class="col-sm-4 col-form-label">Employee First Name</label>
+    
+     <div class="col-sm-8">
+    
+   
+   <input type="text" [(ngModel)]="textInput" id="form3Example4c" class="form-control" (input)="validateInput()" placeholder="Enter Employee First Name" name="passwordfield" ngModel required #passwordfield="ngModel"/>
+
+
+   <div *ngIf="numberError" class="error-message">Numbers are not allowed!</div>
+   
+<div *ngIf="passwordfield.touched && passwordfield.invalid" class="error-message">Field is mandatory</div>
+   <br>
+    </div>
+    
+    
+    <label class="col-sm-4 col-form-label">Employee Last Name</label>
+
+    <div class="col-sm-8">
+
+      <input type="text" [(ngModel)]="lastnameInput" id="form3Example4c" class="form-control" (input)="validateLastNameInput()" placeholder="Enter Employee Last Name" name="lastname" ngModel required #lastnamefield="ngModel"/>
+
+     
+
+      <div *ngIf="numbererror" class="error-message">Numbers are not allowed!</div>
+
+      <div *ngIf="lastnamefield.touched && lastnamefield.invalid" class="error-message">Required field must not be empty</div>
+
+     
+
+      <br>
+
+    </div>
+    
+     <label class="col-sm-4 col-form-label">Designation</label>
+    
+   <div class="col-sm-8">
+    
+  <select class="form-control" [(ngModel)]="Department">
+    
+  <option>--Select--</option>
+ <option *ngFor="let depName of DepartmentsList">
+    
+ {{depName.DepartmentName}}
+</option>
+    
+</select>
+    <br>
+    </div>
+    <label class="col-sm-4 col-form-label" >Date of Joining</label>
+    <div class="col-sm-8">
+    <input type="date"  placeholder="dd-mm-yyyy" value="" for="DateOfJoing" 
+     [(ngModel)]="DateOfJoining" id="form3Example4c" class="form-control" >
+      <br>
+    
+
+</div>
+
+
+
+   <label class="col-sm-4 col-form-label" >Reporting Manager </label>
+    
+    <div class="col-sm-8" >
+    
+   <select class="form-control" [(ngModel)]="Department">
+    
+ <option>--Select--</option>
+    
+   <option *ngFor="let depName of DepartmentsList">
+    
+ {{depName.DepartmentName}}
+    
+</option>
+    
+   </select>
+    <br>
+   </div>
+   <br>
+   
+    
+  <label class="col-sm-4 col-form-label"  > Gender</label>
+    
+     <div class="col-sm-8" >
+    
+        <form>
+            <input type="radio" name="gender" value="male" id="male">
+            
+            <label for="male">Male</label>
+            
+            <input type="radio" name="gender" value="female" id="female"  class="ml-3">
+            <label for="female"> Female</label>
+            </form>
+      
+   </div>
+   <!-- <label class="col-sm-4 col-form-label" >Date of Joining</label>
+    
+<div class="col-sm-8">
+
+<input type="date"  placeholder="dd-mm-yyyy" value="" for="DateOfJoing" 
+ [(ngModel)]="DateOfJoining" id="form3Example4c" class="form-control" >
+ 
+
+
+
+
+
+ <br>
+
+</div>    -->
+
+<label class="col-sm-4 col-form-label">Address</label>
+
+ 
+
+<div class="col-sm-8">
+<textarea [(ngModel)]="textInput1" id="form3Example4c" class="form-control" (input)="validateInput1()" placeholder="Enter your address" name="Addressfield" required #Addressfield="ngModel"></textarea>
+
+ 
+
+  <div *ngIf="Addressfield.invalid && (Addressfield.dirty || Addressfield.touched)" class="error-message">Address is required.</div>
+
+
+  <br>
+</div>
+<label class="col-sm-4 col-form-label" >Country</label>
+    
+<div class="col-sm-8" >
+
+<select class="form-control" [(ngModel)]="Department">
+
+<option>--Select--</option>
+
+<option *ngFor="let depName of DepartmentsList">
+
+{{depName.DepartmentName}}
+
+</option>
+
+</select>
+<br>
+</div>
+<label class="col-sm-4 col-form-label" >State</label>
+    
+<div class="col-sm-8" >
+
+<select class="form-control" [(ngModel)]="Department">
+
+<option>--Select--</option>
+
+<option *ngFor="let depName of DepartmentsList">
+
+{{depName.DepartmentName}}
+
+</option>
+
+</select>
+<br>
+</div>
+
+
+<label class="col-sm-4 col-form-label">Pincode</label>
+    
+     <div class="col-sm-8">
+    
+   
+   <input type="text" [(ngModel)]="textInput" id="form3Example4c" class="form-control" (input)="validateInput()" placeholder="Enter Pincode" name="passwordfield" ngModel required #passwordfield="ngModel"/>
+
+
+   <div *ngIf="numberError" class="error-message">Only numbers are allowed!</div>
+   
+<div *ngIf="passwordfield.touched && passwordfield.invalid" class="error-message">Field is mandatory</div>
+   <br>
+    </div>
+
+    </div>
+  </div>
+  <div class="d-flex justify-content-end">
+     <button type="button" class="btn btn-primary mr-3"
+     data-dismiss="modal" aria-label="Close" 
+     (click)="closeClick()" >
+       Cancel
+     </button>
+
+    
+    <button (click)="addEmployee()" *ngIf="emp.EmployeeId==0" class="btn btn-primary ">
+    
+    Save
+    
+    </button>
+    
+   
+    
+    <button (click)="updateEmployee()" *ngIf="emp.EmployeeId!=0" class="btn btn-primary">
+    
+     Update
+    
+ </button>
+ </div>

@@ -1,0 +1,29 @@
+<div class="form-froup row">
+
+    <label class="col-sm-2 col-form-label" for="name">Department Name*</label>
+    <div class="col-sm-10">
+        
+        <!-- <input type="text" id="form3Example4c" class="form-control" minlength="2" title="Limit is 30 characters" placeholder="Type department name" name="passwordfield" ngModel required #passwordfield="ngModel"/>
+
+        <div *ngIf="passwordfield.invalid && (passwordfield.dirty || passwordfield.touched)" class="alert-danger">Field is mandatory</div>   
+    
+      -->
+      <input type="text" [(ngModel)]="textInput" id="form3Example4c" class="form-control" (input)="validateInput()" title="Max 30 characters can be taken" placeholder="Enter Department Name" name="passwordfield" ngModel required #passwordfield="ngModel"/>
+
+
+      <div *ngIf="numberError" class="error-message">Numbers are not allowed!</div>
+      
+<div *ngIf="passwordfield.touched && passwordfield.invalid" class="error-message">Field is mandatory</div>
+    
+    </div>
+    </div>
+<div class="style p-3">
+    <button type="button" *ngIf="dep.DepartmentId==0" class="btn btn-primary"
+    data-dismiss="modal" aria-label="Close" 
+    (click)="closeClick()" >
+      Cancel
+    </button>
+<button (click)="addDepartment()" *ngIf="dep.DepartmentId==0" class="btn btn-primary ml-2">
+    Save
+</button>
+</div>
